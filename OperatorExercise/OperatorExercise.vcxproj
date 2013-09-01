@@ -14,6 +14,8 @@
     <ProjectGuid>{B029B9ED-8150-4C58-B0A4-54B6C9ABADAD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>OperatorExercise</RootNamespace>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -80,7 +82,12 @@
   <ItemGroup>
     <ClCompile Include="OperatorExercise.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="git.ignore" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   </ImportGroup>
 </Project>
